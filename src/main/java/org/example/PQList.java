@@ -6,7 +6,7 @@ public class PQList implements PriorityQueue{
         Node next;
         Node(Account account){
             this.account=account;
-            this.next = null; //null because we do not know what is the next node
+            this.next = null; //null because we do not know what the next node is
         }
     }
 
@@ -45,30 +45,6 @@ public class PQList implements PriorityQueue{
      *
      * @param a
      */
-   /* @Override
-    public void add(Account a) {
-        Node newNode = new Node(a);
-        if(head == null || head.account.getBalance() < a.getBalance()){ //if the head is null OR the heads account balance is less than the next account balance...
-            newNode.next = head; // the new node will switch places with the head
-            head = newNode;
-        }
-        else{
-            Node current = head;
-            while(current.next != null && current.next.account.getBalance() >= a.getBalance()){
-                current = current.next;
-            }
-            newNode.next = current.next;
-            current.next = newNode;
-        }
-        size++;
-    }*/
-
-    /**
-     * Get the account with the highest priority. Uses the account’s balance to
-     * determine priority. The item is removed from the priority queue.
-     *
-     * @return Account with the highest balance
-     */
     @Override
     public void add(Account a) {
         Node node = new Node(a); //create a new node to put in the pqlist
@@ -76,9 +52,20 @@ public class PQList implements PriorityQueue{
         this.head = node;  //the new head is now the new node
         size++; //increment the size by one since we're adding a new node to the list
     }
+    /**
+     * Get the account with the highest priority. Uses the account’s balance to
+     * determine priority. The item is removed from the priority queue.
+     *
+     * @return Account with the highest balance
+     */
+
     @Override
     public Account getMax() {
-        return head.account;
+        Account highest = head.account;
+        if(head == null){
+            return null;
+        }
+
     }
 
     /**
