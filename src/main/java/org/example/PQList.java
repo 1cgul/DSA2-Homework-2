@@ -96,7 +96,8 @@ public class PQList implements PriorityQueue{
      */
     @Override
     public void clear() {
-
+        head = null;
+        size = 0;
     }
 
     /**
