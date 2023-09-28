@@ -1,19 +1,4 @@
 package org.example;
-//REMEMBER TO IMPLEMENT JAVADOCS@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-//REMEMBER TO IMPLEMENT JAVADOCS@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-//REMEMBER TO IMPLEMENT JAVADOCS@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-//REMEMBER TO IMPLEMENT JAVADOCS@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-//REMEMBER TO IMPLEMENT JAVADOCS@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-//REMEMBER TO IMPLEMENT JAVADOCS@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-//REMEMBER TO IMPLEMENT JAVADOCS@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-//REMEMBER TO IMPLEMENT JAVADOCS@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-//REMEMBER TO IMPLEMENT JAVADOCS@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@//REMEMBER TO IMPLEMENT JAVADOCS@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-//REMEMBER TO IMPLEMENT JAVADOCS@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-//REMEMBER TO IMPLEMENT JAVADOCS@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-//REMEMBER TO IMPLEMENT JAVADOCS@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-//REMEMBER TO IMPLEMENT JAVADOCS@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
-
-
 public class Account {
     private String name;
     private double balance;

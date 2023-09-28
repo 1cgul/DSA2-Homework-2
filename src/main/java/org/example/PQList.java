@@ -17,27 +17,28 @@ public class PQList implements PriorityQueue{
         size = 0;
     }
     public PQList(PQList other){
-        this.head = other.head;
-        this.size = other.size;
+        PQList copiedPQList = other.deepCopy();
+        this.head = copiedPQList.head;
+        this.size = copiedPQList.size;
     }
 
     PQList deepCopy(){
-        PQList copiedList = new PQList();
+        PQList deepCopiedList = new PQList();
 
         if(this.head == null) //if the head is empty, then there are no values in the PQList
-            return copiedList;
+            return deepCopiedList;
 
-        copiedList.head = this.head; //copy the head to the new list
+        deepCopiedList.head = new Node(this.head.account); //copy the head to the new list
         Node current = this.head.next; //current node set to node after head
-        Node currentCopied = copiedList.head; //the current copied node is set to the head
+        Node currentCopied = deepCopiedList.head; //the current copied node is set to the head
 
         while(current != null){ //while the current node is not null
-            currentCopied.next = current; //set the copied list's next node to the original list's next node
+            currentCopied.next = new Node(current.account); //set the copied list's next node to the original list's next node
             current = current.next; // set the current node to the next node in the list
             currentCopied = currentCopied.next; //set the currently copied node to the next node to continue the loop
         }
-        copiedList.size = this.size; //copy the size of the original list to the new list
-        return copiedList; // return the new list
+        deepCopiedList.size = this.size; //copy the size of the original list to the new list
+        return deepCopiedList; // return the new list
     }
 
     /**
@@ -69,12 +70,6 @@ public class PQList implements PriorityQueue{
         Node node = head;
         Node lastHighest = null;
 
-        if(head.next == null || head.account.getBalance() >= head.next.account.getBalance()){ //if the head balance is already the highest balance
-            head = head.next;
-            size--;
-            return highest;
-        }
-
         while(node.next != null){ //sorting
             if(highest.getBalance() < node.next.account.getBalance()){
                 highest = node.next.account;
@@ -83,11 +78,13 @@ public class PQList implements PriorityQueue{
             node = node.next;
         }
 
-        if(lastHighest!=null){ //removing node from list
-            lastHighest.next = lastHighest.next.next;
-            size--;
+        if(lastHighest==null){ //removing node from list
+            head = head.next;
         }
-
+        else{
+            lastHighest.next = lastHighest.next.next;
+        }
+        size--;
         return highest; //returns the account with the highest balance
     }
 
