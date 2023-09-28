@@ -4,6 +4,11 @@ public class PQList implements PriorityQueue{
     private class Node{
         Account account;
         Node next;
+
+        /**
+         * An element in the linked list which contains and account and a pointer to the next node
+         * @param account
+         */
         Node(Account account){
             this.account=account;
             this.next = null; //null because we do not know what the next node is
@@ -12,23 +17,36 @@ public class PQList implements PriorityQueue{
 
     private Node head;
     private int size; //creating a 'size' variable will save us from having to loop through the size of the array later to get the length
-    public PQList(){ //nothing in the list upon instantiation
+
+    /**
+     * Basic constructor for PQList with filler values
+     */
+    public PQList(){
         this.head = null;
         size = 0;
     }
+
+    /**
+     * Creates a new PQList as a deep copy of another PQList
+     * @param other
+     */
     public PQList(PQList other){
         PQList copiedPQList = other.deepCopy();
         this.head = copiedPQList.head;
         this.size = copiedPQList.size;
     }
 
+    /**
+     * Creates a deep copy of the PQList
+     * @return the new deep copied list
+     */
     PQList deepCopy(){
         PQList deepCopiedList = new PQList();
 
         if(this.head == null) //if the head is empty, then there are no values in the PQList
             return deepCopiedList;
 
-        deepCopiedList.head = new Node(this.head.account); //copy the head to the new list
+        deepCopiedList.head = new Node(this.head.account); //copying account of the head node to a new node which is assigned as the head of the new list
         Node current = this.head.next; //current node set to node after head
         Node currentCopied = deepCopiedList.head; //the current copied node is set to the head
 
@@ -70,7 +88,7 @@ public class PQList implements PriorityQueue{
         Node node = head;
         Node lastHighest = null;
 
-        while(node.next != null){ //sorting
+        while(node.next != null){ //finding the highest balance
             if(highest.getBalance() < node.next.account.getBalance()){
                 highest = node.next.account;
                 lastHighest = node;
