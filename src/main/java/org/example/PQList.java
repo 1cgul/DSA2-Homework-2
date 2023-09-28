@@ -62,10 +62,31 @@ public class PQList implements PriorityQueue{
     @Override
     public Account getMax() {
         Account highest = head.account;
-        if(head == null){
+        Node node = head;
+        Node lastHighest = null;
+
+        if(head == null){ //if head is null then there shouldnt be anything in the list
             return null;
         }
 
+        if(head.next == null || head.account.getBalance() >= head.next.account.getBalance()){ //if the head balance is already the highest balance
+            head = head.next;
+            size--;
+            return highest;
+        }
+
+        while(node.next != null){ //sorting
+            if(highest.getBalance() < node.next.account.getBalance()){
+                highest = node.next.account;
+                lastHighest = node;
+            }
+            node = node.next;
+        }
+        if(lastHighest!=null){ //removing node from list
+            lastHighest.next = lastHighest.next.next;
+            size--;
+        }
+        return highest; //returns the account with the highest balance
     }
 
     /**
